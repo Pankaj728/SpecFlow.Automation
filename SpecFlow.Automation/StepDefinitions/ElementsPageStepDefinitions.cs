@@ -50,8 +50,7 @@ namespace SpecFlow.Automation.StepDefinitions
 
         [Given(@"Click on ""([^""]*)"" option")]
         public void GivenClickOnOption(string option)
-        {
-            Assert.Fail();
+        {          
             _driver.Click(string.Format(specificSubMenu, option));
             _driver.WaitUntilExists(string.Format(specificSubMenuActive, option));
         }

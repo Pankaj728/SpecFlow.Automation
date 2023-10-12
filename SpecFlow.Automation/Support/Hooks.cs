@@ -9,6 +9,8 @@ using System.Text.Json;
 using OpenQA.Selenium.Support.UI;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace SpecFlow.Automation.Support
 {
@@ -34,10 +36,12 @@ namespace SpecFlow.Automation.Support
 
             if (browserType.Equals("chrome", StringComparison.OrdinalIgnoreCase))
             {
+                new DriverManager().SetUpDriver(new ChromeConfig());
                 _driver = new ChromeDriver();
             }
             else if (browserType.Equals("firefox", StringComparison.OrdinalIgnoreCase))
             {
+                new DriverManager().SetUpDriver(new FirefoxConfig());
                 _driver = new FirefoxDriver();
             }
             else
